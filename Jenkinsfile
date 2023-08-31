@@ -46,5 +46,17 @@ pipeline{
                }
             }
         }
+
+        stage('Static code analysis: Sonarqube'){
+         
+            steps{
+               script{
+                   
+                   
+                   statiCodeAnalysis()
+               }
+            }
+        }
+
     }
 }
