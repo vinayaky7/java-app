@@ -68,6 +68,18 @@ pipeline{
             }
         }
 
+        stage('Maven build: Sonarqube'){
+        when { expression {  params.action == 'create' } } 
+            steps{
+                
+               script{
+                   
+                   
+                   mvnBuild()
+               }
+            }
+        }
+
     }
 }
 
