@@ -29,7 +29,7 @@ pipeline{
         }
 
         stage('Unit Test maven'){
-        when { expression {  params.action == 'create' } } 
+        // when { expression {  params.action == 'create' } } 
             steps{
                script{
                    
@@ -39,7 +39,7 @@ pipeline{
         }
         
         stage('Integration Test maven'){
-        when { expression {  params.action == 'create' } } 
+        // when { expression {  params.action == 'create' } } 
             steps{
                script{
                    
@@ -48,31 +48,31 @@ pipeline{
             }
         }
 
-        stage('Static code analysis: Sonarqube'){
-         when { expression {  params.action == 'create' } }
-            steps{
-               script{
+        // stage('Static code analysis: Sonarqube'){
+        //  when { expression {  params.action == 'create' } }
+        //     steps{
+        //        script{
                    
-                   def SonarQubecredentialsId = 'sonarqube-api'
-                   statiCodeAnalysis(SonarQubecredentialsId)
-               }
-            }
-        }
+        //            def SonarQubecredentialsId = 'sonarqube-api'
+        //            statiCodeAnalysis(SonarQubecredentialsId)
+        //        }
+        //     }
+        // }
 
-        stage('Quality gate status check: Sonarqube'){
-        when { expression {  params.action == 'create' } } 
-            steps{
+        // stage('Quality gate status check: Sonarqube'){
+        // when { expression {  params.action == 'create' } } 
+        //     steps{
                 
-               script{
+        //        script{
                    
-                   def SonarQubecredentialsId = 'sonarqube-api'
-                   QualityGateStatus(SonarQubecredentialsId)
-               }
-            }
-        }
+        //            def SonarQubecredentialsId = 'sonarqube-api'
+        //            QualityGateStatus(SonarQubecredentialsId)
+        //        }
+        //     }
+        // }
 
         stage('Maven build: Sonarqube'){
-        when { expression {  params.action == 'create' } } 
+        // when { expression {  params.action == 'create' } } 
             steps{
                 
                script{
@@ -84,7 +84,7 @@ pipeline{
         }
 
         stage('Docker image build'){
-        when { expression {  params.action == 'create' } } 
+        // when { expression {  params.action == 'create' } } 
             steps{
                 
                script{
@@ -96,7 +96,7 @@ pipeline{
         }
 
         stage('Docker image scan: trivy'){
-        when { expression {  params.action == 'create' } } 
+        // when { expression {  params.action == 'create' } } 
             steps{
                 
                script{
