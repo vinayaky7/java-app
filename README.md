@@ -1,3 +1,14 @@
+# the repository includes:
+- Java application
+
+- Dockerfile: Used for creating Docker images, indicating the application is containerized.
+
+- Jenkins: jenkinsfile and Jenkinsfile-ECR Scripts for Jenkins, suggesting the use of Jenkins for continuous integration and deployment.
+
+- Kubernetes: A Kubernetes deployment file, indicating that the application is designed to be deployed in a Kubernetes environment.
+
+
+
 # kubernetes-configmap-reload
 
 Pre-requisites:
